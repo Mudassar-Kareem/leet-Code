@@ -2,14 +2,13 @@ class Solution {
 public:
     int finalValueAfterOperations(vector<string>& operations) {
         int X=0;
-        for(const std::string& o: operations ){
-            if( o== "X++" ||o == "++X"){
+        for(const std::string& v:operations){
+            if(v == "++X" || v == "X++"){
                 X++;
-            }else if(o == "X--" ||o == "--X"){
+            }else if(v == "--X" || v == "X--"){
                 X--;
-            };
+            }
         }
-         return X;
-        
+        return X;
     }
 };
