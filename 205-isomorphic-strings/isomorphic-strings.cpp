@@ -1,21 +1,16 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        vector<int> indexs(200,0);
-        vector<int> indext(200,0);
-        int n = s.length();
-        if(n != t.length()){
-            return false;
-        };
-        for( int i=0; i<n; i++){
-            if(indexs[s[i]] != indext[t[i]]){
+        int l = s.length();
+        vector<int> indexS(256,-1);
+        vector<int> indexT(256,-1);
+        for(int i=0; i<l;i++){
+            if(indexS[s[i]] != indexT[t[i]]){
                 return false;
-            }
-            indexs[s[i]] =i+1;
-            indext[t[i]] =i+1;
-
-        };
+            };
+            indexS[s[i]] =i;
+            indexT[t[i]] =i;
+        }
         return true;
-        
     }
 };
